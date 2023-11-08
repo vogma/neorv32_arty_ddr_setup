@@ -17,10 +17,21 @@ In order to make these Modules accessible to the Softcore and the Software runni
 
 Some memory regions are reserved for processor internal memories like the bootloader or the internal data and instruction memory. But a lot of memory space is no preoccupied and therefore free to be used. As stated in the documentation a memory access to one of these "void" regions will be redirected to the external memory bus. 
 
+The address map of the modules used in this example project is listed in the following table:
 | Memory Map | Start Address | Size | High Address |
 |------------|---------------|------|--------------|
 | DDR        | 0x1000_0000   | 265M | 0x1FFF_FFFF  |
 | GPIO       | 0x4000_0000   | 64K  | 0x4000_FFFF  |
+
+This memory map is configured via the AXI Smartconnect
+
+So a write to address 0x10000000 is forwarded to the external memory bus which is then routed through the AXI Smartconnect to the MIG IP where it is sent to the DDR PHY. With the provided [bus_explorer](https://github.com/stnolting/neorv32/tree/main/sw/example/bus_explorer) example, located in `neorv32/sw/example/bus_explorer`, the funcionality of the project can be tested by writing and reading memory locations located within the address map of the DDR.
+
+The first three LED's of the Arty A7 are also memory mapped via the AXI_GPIO Module. So if you write the byte 0x01 to address 0x4000_0000 the first LED will light up and so on.
+
+#### TODO 
+This integration of the external DDR memory of the Arty Board is more a proof of concept and can't be used conveniently with compiled C Code because the processor will use it's enabled internal IMEM and DMEM. In a future project i plan to use the external DDR as the main memory of the Softcore and evaluate the performance differences.
+
 
 ## Setup
 
