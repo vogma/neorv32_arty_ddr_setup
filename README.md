@@ -20,7 +20,7 @@ Some memory regions are reserved for processor internal memories like the bootlo
 The address map of the modules used in this example project is listed in the following table:
 | Memory Map | Start Address | Size | High Address |
 |------------|---------------|------|--------------|
-| DDR        | 0x1000_0000   | 265M | 0x1FFF_FFFF  |
+| DDR        | 0x1000_0000   | 256M | 0x1FFF_FFFF  |
 | GPIO       | 0x4000_0000   | 64K  | 0x4000_FFFF  |
 
 This memory map is configured via the AXI Smartconnect
@@ -31,7 +31,7 @@ The first three LED's of the Arty A7 are also memory mapped via the AXI_GPIO Mod
 (The fourth LED is connected to the `init_calib_done` signal of the mig and indicates that the calibration of the ddr memory is finished)
 
 #### Disclaimer 
-This integration of the external DDR memory is more a proof of concept and can't be used conveniently with compiled C Code because the processor will use it's enabled internal IMEM and DMEM. In a future project i plan to use the external DDR as the main memory of the Softcore and evaluate the performance differences.
+This integration of the external DDR memory is more a proof of concept and can't be used conveniently with compiled C code because the processor will use it's enabled internal IMEM and DMEM. In a future project I plan to use the external DDR as the main memory of the Softcore and evaluate the performance differences.
 
 
 ## Setup
