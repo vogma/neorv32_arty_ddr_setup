@@ -28,9 +28,10 @@ This memory map is configured via the AXI Smartconnect
 So a write to address 0x10000000 is forwarded to the external memory bus which is then routed through the AXI Smartconnect to the MIG IP where it is sent to the DDR PHY. With the provided [bus_explorer](https://github.com/stnolting/neorv32/tree/main/sw/example/bus_explorer) example, located in `neorv32/sw/example/bus_explorer`, the funcionality of the project can be tested by writing and reading memory locations located within the address map of the DDR.
 
 The first three LED's of the Arty A7 are also memory mapped via the AXI_GPIO Module. So if you write the byte 0x01 to address 0x4000_0000 the first LED will light up and so on.
+(The fourth LED is connected to the `init_calib_done` signal of the mig and indicates that the calibration of the ddr memory is finished)
 
-#### TODO 
-This integration of the external DDR memory of the Arty Board is more a proof of concept and can't be used conveniently with compiled C Code because the processor will use it's enabled internal IMEM and DMEM. In a future project i plan to use the external DDR as the main memory of the Softcore and evaluate the performance differences.
+#### Disclaimer 
+This integration of the external DDR memory is more a proof of concept and can't be used conveniently with compiled C Code because the processor will use it's enabled internal IMEM and DMEM. In a future project i plan to use the external DDR as the main memory of the Softcore and evaluate the performance differences.
 
 
 ## Setup
