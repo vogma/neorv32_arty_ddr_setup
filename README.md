@@ -3,7 +3,7 @@
 The [NEORV32](https://github.com/stnolting/neorv32) is a Softcore Processor written entirely in VHDL an is very well documented. In its default configuration only on-chip FPGA RAM is used for IMEM (Instruction Memory) and DMEM (Data Memory).
 This is a very reasonable choice, because using off-chip memory, like DDR, requieres proprietary IP from the FPGA Vendor. By using only on-chip Memory of the FPGA (BRAM), which is inferred by the platform independant VHDL Code, NEORV32 can be used on a wide variety of FPGA Platforms.
 
-The goal of this project is to connect the NEORV32 to the external DDR3 Memory of the [Arty A7-100T](https://digilent.com/reference/programmable-logic/arty-a7/start) FPGA Board. The NEORV32 Softcore can address 32 bits of Memory Space (4GB), which makes more than capable to integrate the 256MB of DDR3 Memory into its memory space. The following images depicts the [address space](https://stnolting.github.io/neorv32/#_address_space) of the NEROV32 Processor
+The goal of this project is to connect the NEORV32 to the external DDR3 Memory of the [Arty A7-100T](https://digilent.com/reference/programmable-logic/arty-a7/start) FPGA Board. The NEORV32 Softcore can address 32 bits of Memory Space (4GB), which makes more than capable to integrate the 256MB of DDR3 Memory into its memory space. 
 
   ![Blockdesign of the neorv32 setup with the ddr3 memory connected to the external memory bus](/pictures/blockdesign.png)
 
@@ -11,8 +11,7 @@ This picture shows the block diagram of the Vivado Project. The NEORV32 Softcore
 The NEORV32 Softcore is connected to an AXI Smartconnect module which enabels the connection of multiple AXI Slaves to the AXI Master port of the processor. In this example, the Softcore is connected to the MIG, which in turn is connected to the DDR3 RAM, and to an AXI_GPIO IP Module. 
 
 ## Address Map
-In order to make these Modules accessible to the Softcore and the Software running on it, the DDR RAM and the GPIO Module have to be mapped into the address space of the Processor. NEORV32 has 32 address bits and can therefore address up to four GB of memory so it is more than capable to incorporate the 256 MB of external DDR RAM. The following picture shows the address map of the NEORV32 Softcore.
-
+In order to make these Modules accessible to the Softcore and the Software running on it, the DDR RAM and the GPIO Module have to be mapped into the address space of the Processor. NEORV32 has 32 address bits and can therefore address up to four GB of memory so it is more than capable to incorporate the 256 MB of external DDR RAM. The following image depicts the [address space](https://stnolting.github.io/neorv32/#_address_space) of the NEROV32 Processor:
 <img src="https://stnolting.github.io/neorv32/img/address_space.png" width="800" >
 
 Some memory regions are reserved for processor internal memories like the bootloader or the internal data and instruction memory. But a lot of memory space is no preoccupied and therefore free to be used. As stated in the documentation a memory access to one of these "void" regions will be redirected to the external memory bus. 
