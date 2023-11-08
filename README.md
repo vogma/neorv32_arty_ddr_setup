@@ -18,5 +18,5 @@ The goal of this project is to connect the NEORV32 to the external DDR3 Memory o
 
 Vivado v2020.2 is used in this project. To create the project files, execute following command:
 
-`vivado -mode batch -source neorv32_v.tcl -nojournal -nolog`
+`vivado -mode batch -source neorv32_arty_ddr.tcl -nojournal -nolog`
 
