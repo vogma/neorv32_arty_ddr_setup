@@ -11,7 +11,7 @@ This picture shows the block diagram of the Vivado Project. The NEORV32 Softcore
 The NEORV32 Softcore is connected to an AXI Smartconnect module which enabels the connection of multiple AXI Slaves to the AXI Master port of the processor. In this example, the Softcore is connected to the MIG, which in turn is connected to the DDR3 RAM, and to an AXI_GPIO IP Module. 
 
 ## Address Map
-In order to make these Modules accessible to the Softcore and the Software running on it, the DDR RAM and the GPIO Module have to be mapped into the address space of the Processor. NEORV32 has 32 address bits and can therefore address up to four GB of memory so it is more than capable to incorporate the 256 MB of external DDR RAM. The following image depicts the [address space](https://stnolting.github.io/neorv32/#_address_space) of the NEROV32 Processor:
+In order to make these Modules accessible to the Softcore and the Software running on it, the DDR RAM and the GPIO Module have to be mapped into the address space of the Processor. NEORV32 has 32 address bits and can therefore address up to four GB of memory so it is more than capable to incorporate the 256 MB of external DDR RAM. The following image depicts the [address space](https://stnolting.github.io/neorv32/#_address_space) of the NEORV32 Processor:
 <img src="https://stnolting.github.io/neorv32/img/address_space.png" width="800" >
 
 Some memory regions are reserved for processor internal memories like the bootloader or the internal data and instruction memory. But a lot of memory space is no preoccupied and therefore free to be used. As stated in the documentation a memory access to one of these "void" regions will be redirected to the external memory bus. 
