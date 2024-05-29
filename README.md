@@ -1,7 +1,7 @@
 # Arty-A7 DDR3 Integration into NEORV32 Softcore Processor
 
-The [NEORV32](https://github.com/stnolting/neorv32) is a Softcore Processor written entirely in VHDL an is very well documented. In its default configuration only on-chip FPGA RAM is used for IMEM (Instruction Memory) and DMEM (Data Memory).
-This is a very reasonable choice, because using off-chip memory, like DDR, requieres proprietary IP from the FPGA Vendor. By using only on-chip Memory of the FPGA (BRAM), which is inferred by the platform independant VHDL Code, NEORV32 can be used on a wide variety of FPGA Platforms.
+The [NEORV32](https://github.com/stnolting/neorv32) is a Softcore Processor written entirely in VHDL and very well documented. In its default configuration only on-chip FPGA RAM is used for IMEM (Instruction Memory) and DMEM (Data Memory).
+This is a very reasonable choice, because using off-chip memory, like DDR, requires proprietary IP from the FPGA Vendor. By using only on-chip Memory of the FPGA (BRAM), which is inferred by the platform independant VHDL Code, NEORV32 can be used on a wide variety of FPGA Platforms.
 
 The goal of this project is to connect the NEORV32 to the external DDR3 Memory of the [Arty A7-100T](https://digilent.com/reference/programmable-logic/arty-a7/start) FPGA Board. The NEORV32 Softcore can address 32 bits of Memory Space (4GB), which makes more than capable to integrate the 256MB of DDR3 Memory into its memory space. 
 
@@ -31,7 +31,6 @@ The first three LED's of the Arty A7 are also memory mapped via the AXI_GPIO Mod
 
 #### Disclaimer 
 This integration of the external DDR memory is more a proof of concept and can't be used conveniently with compiled C code because the processor will use it's enabled internal IMEM and DMEM. In a future project I plan to use the external DDR as the main memory of the Softcore and evaluate the performance differences.
-
 
 ## Setup
 
